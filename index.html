@@ -11,16 +11,32 @@
         .bgcolor--blue {
             background-color: lightblue;
         }
+        .bgcolor--gray {
+            background-color: gray;
+        }
     </style>
 </head>
 <body>
-    <button class="btn_bg">배경색상변경</button>
+    <button class="btn_toggle">배경색상변경_토글버튼</button>
+    <button class="btn_reset">배경색상변경_리셋</button>
+    <button class="btn_bggray">배경색상변경_그레이</button>
     <script>
-        bonst btnBg = document.querySelector('.btn_bg');
-        btnBg.addEventlistener('click', function() {
+        const btnBgGray = document.querySelector('.btn_bggray');
+        btnBgGray.addEventListener('click', function() {
+            document.body.classList.toggle('bgcolor--gray');
+        });
+
+        const btnToggle = document.querySelector('.btn_toggle');
+        btnToggle.addEventListener('click', function() {
             document.body.classList.toggle('bgcolor--blue');
         });
-        const input = prompt('massage','_default');
+
+        const btnReset = document.querySelector('.btn_reset');
+        btnReset.addEventListener('click', function() {
+            document.body.classList.remove('bgcolor--blue', 'bgcolor--gray');
+        });
+
+        const input = prompt('message', '_default');
         alert(input);
     </script>
 </body>
